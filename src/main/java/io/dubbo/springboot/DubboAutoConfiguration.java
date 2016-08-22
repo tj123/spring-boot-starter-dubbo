@@ -6,7 +6,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.alibaba.dubbo.config.ApplicationConfig;
+import com.alibaba.dubbo.config.ConsumerConfig;
 import com.alibaba.dubbo.config.ProtocolConfig;
+import com.alibaba.dubbo.config.ProviderConfig;
 import com.alibaba.dubbo.config.RegistryConfig;
 
 @Configuration
@@ -31,5 +33,14 @@ public class DubboAutoConfiguration {
         return dubboProperties.getProtocol();
     }
 
+    @Bean
+    public ProviderConfig requestProviderConfig() {
+        return dubboProperties.getProvider();
+    }
+    
+    @Bean
+    public ConsumerConfig requestConsumerConfig() {
+        return dubboProperties.getConsumer();
+    }
 
 }

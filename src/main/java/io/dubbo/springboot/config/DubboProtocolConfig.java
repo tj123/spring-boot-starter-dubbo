@@ -1,7 +1,5 @@
 package io.dubbo.springboot.config;
 
-import java.util.Map;
-
 import com.alibaba.dubbo.config.ProtocolConfig;
 
 public class DubboProtocolConfig extends ProtocolConfig {
@@ -42,20 +40,6 @@ public class DubboProtocolConfig extends ProtocolConfig {
 	public void setPort(Integer port) {
 		// TODO Auto-generated method stub
 		super.setPort(port);
-	}
-
-	@Deprecated
-	@Override
-	public String getPath() {
-		// TODO Auto-generated method stub
-		return super.getPath();
-	}
-
-	@Deprecated
-	@Override
-	public void setPath(String path) {
-		// TODO Auto-generated method stub
-		super.setPath(path);
 	}
 
 	@Override
@@ -310,20 +294,6 @@ public class DubboProtocolConfig extends ProtocolConfig {
 		super.setExchanger(exchanger);
 	}
 
-	@Deprecated
-	@Override
-	public String getDispather() {
-		// TODO Auto-generated method stub
-		return super.getDispather();
-	}
-
-	@Deprecated
-	@Override
-	public void setDispather(String dispather) {
-		// TODO Auto-generated method stub
-		super.setDispather(dispather);
-	}
-
 	@Override
 	public String getDispatcher() {
 		// TODO Auto-generated method stub
@@ -346,18 +316,6 @@ public class DubboProtocolConfig extends ProtocolConfig {
 	public void setNetworker(String networker) {
 		// TODO Auto-generated method stub
 		super.setNetworker(networker);
-	}
-
-	@Override
-	public Map<String, String> getParameters() {
-		// TODO Auto-generated method stub
-		return super.getParameters();
-	}
-
-	@Override
-	public void setParameters(Map<String, String> parameters) {
-		// TODO Auto-generated method stub
-		super.setParameters(parameters);
 	}
 
 	@Override

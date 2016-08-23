@@ -1,77 +1,10 @@
 package io.dubbo.springboot.config;
 
-import java.util.List;
-import java.util.Map;
-
-import com.alibaba.dubbo.config.ApplicationConfig;
-import com.alibaba.dubbo.config.ModuleConfig;
-import com.alibaba.dubbo.config.MonitorConfig;
-import com.alibaba.dubbo.config.ProtocolConfig;
 import com.alibaba.dubbo.config.ProviderConfig;
-import com.alibaba.dubbo.config.RegistryConfig;
 
 public class DubboProviderConfig extends ProviderConfig {
 
 	private static final long serialVersionUID = -6321707693900535511L;
-
-	@Deprecated
-	@Override
-	public void setProtocol(String protocol) {
-		// TODO Auto-generated method stub
-		super.setProtocol(protocol);
-	}
-
-	@Override
-	public Boolean isDefault() {
-		// TODO Auto-generated method stub
-		return super.isDefault();
-	}
-
-	@Deprecated
-	@Override
-	public void setDefault(Boolean isDefault) {
-		// TODO Auto-generated method stub
-		super.setDefault(isDefault);
-	}
-
-	@Override
-	public String getHost() {
-		// TODO Auto-generated method stub
-		return super.getHost();
-	}
-
-	@Override
-	public void setHost(String host) {
-		// TODO Auto-generated method stub
-		super.setHost(host);
-	}
-
-	@Override
-	public Integer getPort() {
-		// TODO Auto-generated method stub
-		return super.getPort();
-	}
-
-	@Deprecated
-	@Override
-	public void setPort(Integer port) {
-		// TODO Auto-generated method stub
-		super.setPort(port);
-	}
-
-	@Deprecated
-	@Override
-	public String getPath() {
-		// TODO Auto-generated method stub
-		return super.getPath();
-	}
-
-	@Deprecated
-	@Override
-	public void setPath(String path) {
-		// TODO Auto-generated method stub
-		super.setPath(path);
-	}
 
 	@Override
 	public String getContextpath() {
@@ -331,20 +264,6 @@ public class DubboProviderConfig extends ProviderConfig {
 		super.setExchanger(exchanger);
 	}
 
-	@Deprecated
-	@Override
-	public String getDispather() {
-		// TODO Auto-generated method stub
-		return super.getDispather();
-	}
-
-	@Deprecated
-	@Override
-	public void setDispather(String dispather) {
-		// TODO Auto-generated method stub
-		super.setDispather(dispather);
-	}
-
 	@Override
 	public String getDispatcher() {
 		// TODO Auto-generated method stub
@@ -496,30 +415,6 @@ public class DubboProviderConfig extends ProviderConfig {
 	}
 
 	@Override
-	public List<ProtocolConfig> getProtocols() {
-		// TODO Auto-generated method stub
-		return super.getProtocols();
-	}
-
-	@Override
-	public void setProtocols(List<? extends ProtocolConfig> protocols) {
-		// TODO Auto-generated method stub
-		super.setProtocols(protocols);
-	}
-
-	@Override
-	public ProtocolConfig getProtocol() {
-		// TODO Auto-generated method stub
-		return super.getProtocol();
-	}
-
-	@Override
-	public void setProtocol(ProtocolConfig protocol) {
-		// TODO Auto-generated method stub
-		super.setProtocol(protocol);
-	}
-
-	@Override
 	public String getAccesslog() {
 		// TODO Auto-generated method stub
 		return super.getAccesslog();
@@ -577,27 +472,6 @@ public class DubboProviderConfig extends ProviderConfig {
 	public void setRegister(Boolean register) {
 		// TODO Auto-generated method stub
 		super.setRegister(register);
-	}
-
-	@Deprecated
-	@Override
-	public String getLocal() {
-		// TODO Auto-generated method stub
-		return super.getLocal();
-	}
-
-	@Deprecated
-	@Override
-	public void setLocal(String local) {
-		// TODO Auto-generated method stub
-		super.setLocal(local);
-	}
-
-	@Deprecated
-	@Override
-	public void setLocal(Boolean local) {
-		// TODO Auto-generated method stub
-		super.setLocal(local);
 	}
 
 	@Override
@@ -658,72 +532,6 @@ public class DubboProviderConfig extends ProviderConfig {
 	public void setLayer(String layer) {
 		// TODO Auto-generated method stub
 		super.setLayer(layer);
-	}
-
-	@Override
-	public ApplicationConfig getApplication() {
-		// TODO Auto-generated method stub
-		return super.getApplication();
-	}
-
-	@Override
-	public void setApplication(ApplicationConfig application) {
-		// TODO Auto-generated method stub
-		super.setApplication(application);
-	}
-
-	@Override
-	public ModuleConfig getModule() {
-		// TODO Auto-generated method stub
-		return super.getModule();
-	}
-
-	@Override
-	public void setModule(ModuleConfig module) {
-		// TODO Auto-generated method stub
-		super.setModule(module);
-	}
-
-	@Override
-	public RegistryConfig getRegistry() {
-		// TODO Auto-generated method stub
-		return super.getRegistry();
-	}
-
-	@Override
-	public void setRegistry(RegistryConfig registry) {
-		// TODO Auto-generated method stub
-		super.setRegistry(registry);
-	}
-
-	@Override
-	public List<RegistryConfig> getRegistries() {
-		// TODO Auto-generated method stub
-		return super.getRegistries();
-	}
-
-	@Override
-	public void setRegistries(List<? extends RegistryConfig> registries) {
-		// TODO Auto-generated method stub
-		super.setRegistries(registries);
-	}
-
-	@Override
-	public MonitorConfig getMonitor() {
-		// TODO Auto-generated method stub
-		return super.getMonitor();
-	}
-
-	@Override
-	public void setMonitor(MonitorConfig monitor) {
-		// TODO Auto-generated method stub
-		super.setMonitor(monitor);
-	}
-
-	@Override
-	public void setMonitor(String monitor) {
-		// TODO Auto-generated method stub
-		super.setMonitor(monitor);
 	}
 
 	@Override
@@ -880,18 +688,6 @@ public class DubboProviderConfig extends ProviderConfig {
 	public void setValidation(String validation) {
 		// TODO Auto-generated method stub
 		super.setValidation(validation);
-	}
-
-	@Override
-	public Map<String, String> getParameters() {
-		// TODO Auto-generated method stub
-		return super.getParameters();
-	}
-
-	@Override
-	public void setParameters(Map<String, String> parameters) {
-		// TODO Auto-generated method stub
-		super.setParameters(parameters);
 	}
 
 	@Override

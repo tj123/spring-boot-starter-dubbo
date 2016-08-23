@@ -1,13 +1,6 @@
 package io.dubbo.springboot.config;
 
-import java.util.List;
-import java.util.Map;
-
-import com.alibaba.dubbo.config.ApplicationConfig;
 import com.alibaba.dubbo.config.ConsumerConfig;
-import com.alibaba.dubbo.config.ModuleConfig;
-import com.alibaba.dubbo.config.MonitorConfig;
-import com.alibaba.dubbo.config.RegistryConfig;
 
 public class DubboConsumerConfig extends ConsumerConfig {
 
@@ -77,20 +70,6 @@ public class DubboConsumerConfig extends ConsumerConfig {
 	public String getGeneric() {
 		// TODO Auto-generated method stub
 		return super.getGeneric();
-	}
-
-	@Deprecated
-	@Override
-	public Boolean isInjvm() {
-		// TODO Auto-generated method stub
-		return super.isInjvm();
-	}
-
-	@Deprecated
-	@Override
-	public void setInjvm(Boolean injvm) {
-		// TODO Auto-generated method stub
-		super.setInjvm(injvm);
 	}
 
 	@Override
@@ -189,27 +168,6 @@ public class DubboConsumerConfig extends ConsumerConfig {
 		super.setGroup(group);
 	}
 
-	@Deprecated
-	@Override
-	public String getLocal() {
-		// TODO Auto-generated method stub
-		return super.getLocal();
-	}
-
-	@Deprecated
-	@Override
-	public void setLocal(String local) {
-		// TODO Auto-generated method stub
-		super.setLocal(local);
-	}
-
-	@Deprecated
-	@Override
-	public void setLocal(Boolean local) {
-		// TODO Auto-generated method stub
-		super.setLocal(local);
-	}
-
 	@Override
 	public String getStub() {
 		// TODO Auto-generated method stub
@@ -280,72 +238,6 @@ public class DubboConsumerConfig extends ConsumerConfig {
 	public void setLayer(String layer) {
 		// TODO Auto-generated method stub
 		super.setLayer(layer);
-	}
-
-	@Override
-	public ApplicationConfig getApplication() {
-		// TODO Auto-generated method stub
-		return super.getApplication();
-	}
-
-	@Override
-	public void setApplication(ApplicationConfig application) {
-		// TODO Auto-generated method stub
-		super.setApplication(application);
-	}
-
-	@Override
-	public ModuleConfig getModule() {
-		// TODO Auto-generated method stub
-		return super.getModule();
-	}
-
-	@Override
-	public void setModule(ModuleConfig module) {
-		// TODO Auto-generated method stub
-		super.setModule(module);
-	}
-
-	@Override
-	public RegistryConfig getRegistry() {
-		// TODO Auto-generated method stub
-		return super.getRegistry();
-	}
-
-	@Override
-	public void setRegistry(RegistryConfig registry) {
-		// TODO Auto-generated method stub
-		super.setRegistry(registry);
-	}
-
-	@Override
-	public List<RegistryConfig> getRegistries() {
-		// TODO Auto-generated method stub
-		return super.getRegistries();
-	}
-
-	@Override
-	public void setRegistries(List<? extends RegistryConfig> registries) {
-		// TODO Auto-generated method stub
-		super.setRegistries(registries);
-	}
-
-	@Override
-	public MonitorConfig getMonitor() {
-		// TODO Auto-generated method stub
-		return super.getMonitor();
-	}
-
-	@Override
-	public void setMonitor(MonitorConfig monitor) {
-		// TODO Auto-generated method stub
-		super.setMonitor(monitor);
-	}
-
-	@Override
-	public void setMonitor(String monitor) {
-		// TODO Auto-generated method stub
-		super.setMonitor(monitor);
 	}
 
 	@Override
@@ -514,18 +406,6 @@ public class DubboConsumerConfig extends ConsumerConfig {
 	public void setValidation(String validation) {
 		// TODO Auto-generated method stub
 		super.setValidation(validation);
-	}
-
-	@Override
-	public Map<String, String> getParameters() {
-		// TODO Auto-generated method stub
-		return super.getParameters();
-	}
-
-	@Override
-	public void setParameters(Map<String, String> parameters) {
-		// TODO Auto-generated method stub
-		super.setParameters(parameters);
 	}
 
 	@Override

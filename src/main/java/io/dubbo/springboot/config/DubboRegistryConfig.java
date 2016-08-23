@@ -1,7 +1,5 @@
 package io.dubbo.springboot.config;
 
-import java.util.Map;
-
 import com.alibaba.dubbo.config.RegistryConfig;
 
 public class DubboRegistryConfig extends RegistryConfig {
@@ -68,20 +66,6 @@ public class DubboRegistryConfig extends RegistryConfig {
 		super.setPassword(password);
 	}
 
-	@Deprecated
-	@Override
-	public Integer getWait() {
-		// TODO Auto-generated method stub
-		return super.getWait();
-	}
-
-	@Deprecated
-	@Override
-	public void setWait(Integer wait) {
-		// TODO Auto-generated method stub
-		super.setWait(wait);
-	}
-
 	@Override
 	public Boolean isCheck() {
 		// TODO Auto-generated method stub
@@ -104,20 +88,6 @@ public class DubboRegistryConfig extends RegistryConfig {
 	public void setFile(String file) {
 		// TODO Auto-generated method stub
 		super.setFile(file);
-	}
-
-	@Deprecated
-	@Override
-	public String getTransport() {
-		// TODO Auto-generated method stub
-		return super.getTransport();
-	}
-
-	@Deprecated
-	@Override
-	public void setTransport(String transport) {
-		// TODO Auto-generated method stub
-		super.setTransport(transport);
 	}
 
 	@Override
@@ -250,18 +220,6 @@ public class DubboRegistryConfig extends RegistryConfig {
 	public void setVersion(String version) {
 		// TODO Auto-generated method stub
 		super.setVersion(version);
-	}
-
-	@Override
-	public Map<String, String> getParameters() {
-		// TODO Auto-generated method stub
-		return super.getParameters();
-	}
-
-	@Override
-	public void setParameters(Map<String, String> parameters) {
-		// TODO Auto-generated method stub
-		super.setParameters(parameters);
 	}
 
 	@Override

@@ -1,12 +1,13 @@
 package io.dubbo.springboot;
 
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
-import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.MutablePropertyValues;
@@ -25,6 +26,7 @@ import org.springframework.core.type.AnnotationMetadata;
 import org.springframework.validation.BindException;
 
 import com.alibaba.dubbo.common.extension.ExtensionLoader;
+import com.alibaba.dubbo.common.utils.ReflectUtils;
 import com.alibaba.dubbo.config.ApplicationConfig;
 import com.alibaba.dubbo.config.ConsumerConfig;
 import com.alibaba.dubbo.config.MonitorConfig;
@@ -174,13 +176,21 @@ public class DubboRegistrar implements ImportBeanDefinitionRegistrar, Environmen
 		MutablePropertyValues propertyValues = beanDefinition.getPropertyValues();
 		Map<String, String> properties = null;
 		try {
-			properties = BeanUtils.describe(bean);
+			properties = new HashMap<>();
+			Map<String, Method> methods = ReflectUtils.getBeanPropertyReadMethods(bean.getClass());
+			for (Map.Entry<String, Method> entry : methods.entrySet()) {
+				String key = entry.getKey();
+				Object value = entry.getValue().invoke(bean);
+				if(value != null){
+					properties.put(key, value.toString());
+				}
+			}
 			properties.remove("class");
 		} catch (IllegalAccessException e) {
 			e.printStackTrace();
-		} catch (InvocationTargetException e) {
+		} catch (IllegalArgumentException e) {
 			e.printStackTrace();
-		} catch (NoSuchMethodException e) {
+		} catch (InvocationTargetException e) {
 			e.printStackTrace();
 		}
 		
@@ -202,12 +212,12 @@ public class DubboRegistrar implements ImportBeanDefinitionRegistrar, Environmen
 					Object reference = null;
 					Class<?> type = value.getClass();
 					if (isPrimitive(type)) {
-	                    if ("async".equals(property) && "false".equals(value)
-	                            || "timeout".equals(property) && "0".equals(value)
-	                            || "delay".equals(property) && "0".equals(value)
-	                            || "version".equals(property) && "0.0.0".equals(value)
-	                            || "stat".equals(property) && "-1".equals(value)
-	                            || "reliable".equals(property) && "false".equals(value)) {
+	                    if (("async".equals(property) && "false".equals(value))
+	                            || ("timeout".equals(property) && "0".equals(value))
+	                            || ("delay".equals(property) && "0".equals(value))
+	                            || ("version".equals(property) && "0.0.0".equals(value))
+	                            || ("stat".equals(property) && "-1".equals(value))
+	                            || ("reliable".equals(property) && "false".equals(value))) {
 	                        value = null;
 	                    }
 	                    reference = value;
@@ -226,7 +236,7 @@ public class DubboRegistrar implements ImportBeanDefinitionRegistrar, Environmen
                                     || ! MonitorConfig.class.getName().equals(registry.getBeanDefinition(value).getBeanClassName()))) {
                         reference = this.convertMonitor(value);
 					}
-                    beanDefinition.getPropertyValues().addPropertyValue(property, reference);
+					propertyValues.addPropertyValue(property, reference);
 				}
 			}
 		}

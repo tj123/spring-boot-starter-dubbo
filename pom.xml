@@ -10,6 +10,16 @@
     <groupId>io.dubbo.springboot</groupId>
 	<artifactId>spring-boot-starter-dubbo</artifactId>
     <version>1.1.0-SNAPSHOT</version>
+    <developers>
+    	<developer>
+    		<name>Wu.XiaoFei</name>
+    		<url>https://github.com/teaey</url>
+    	</developer>
+    	<developer>
+    		<name>Yang.Yin</name>
+    		<url>https://github.com/dmotnxpy</url>
+    	</developer>
+    </developers>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

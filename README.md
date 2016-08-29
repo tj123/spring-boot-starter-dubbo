@@ -2,11 +2,15 @@
 
 ## 如何使用
 
-### 基本使用见：https://github.com/teaey/spring-boot-starter-dubbo
+### 1. 基本使用请见：
 
-### 配置文件：
+https://github.com/teaey/spring-boot-starter-dubbo
 
-application-dubbo.properties
+### 2. 支持XML配置文件：
+
+优先加载XML配置，路径：META-INF/spring/applicationContext*.xml
+
+### 3. 支持Properties配置文件：
 
 ```
 # annotation

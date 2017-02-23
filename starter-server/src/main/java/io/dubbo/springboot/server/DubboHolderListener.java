@@ -1,4 +1,4 @@
-package io.dubbo.springboot;
+package io.dubbo.springboot.server;
 
 import org.springframework.boot.context.event.ApplicationPreparedEvent;
 import org.springframework.context.ApplicationEvent;
@@ -43,4 +43,5 @@ public class DubboHolderListener implements ApplicationListener {
             }
         }
     }
+
 }

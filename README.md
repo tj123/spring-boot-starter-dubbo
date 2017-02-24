@@ -1,8 +1,7 @@
 #spring-boot-start-dubbo
 
 spring-boot-start-dubbo，让你可以使用spring-boot的方式开发dubbo程序。使dubbo开发变得如此简单。
-> 该项目是由teaey的项目[spring-boot-starter-dubbo](https://github.com/teaey/spring-boot-starter-dubbo)重构而成.
-> 如果有何指正，请联系我 272472809@qq.com
+> 该项目是由teaey的项目[spring-boot-starter-dubbo](https://github.com/teaey/spring-boot-starter-dubbo)重构而成。 如果有何指正，请联系我 272472809@qq.com
 
 ## 如何使用
 
@@ -37,8 +36,8 @@ mvn clean install
 
  ```
 #### 该项目分为了两个模块：
-* starter-common 该模块主要功能为扫描dubbo组件 
-* starter-server 依赖 starter-common 便于注册到zookeeper
+* starter-dubbo-common 该模块主要功能为扫描dubbo组件 
+* starter-dubbo-server 依赖 starter-common 便于注册到zookeeper
 
 ##### maven插件用于打包成可执行的jar文件,添加以下插件(这里一定要加载需要打包成jar的mudule的pom中)
 ```

@@ -11,7 +11,7 @@ spring-boot-start-dubbo，让你可以使用spring-boot的方式开发dubbo程�
 git clone git@github.com:JohnsonLow/spring-boot-starter-dubbo.git
 ```
 
-### 2. 编译安装（可选）
+### 2. 编译安装（暂时未发布。目前未发现bug）
 
 ```
 cd spring-boot-starter-dubbo

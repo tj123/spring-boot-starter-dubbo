@@ -23,16 +23,16 @@ mvn clean install
 
 ##### 在Spring Boot项目的pom.xml修改依赖的版本及编码:
 ```
-    <properties>
-        <java.version>1.7</java.version>
-        <spring-boot.version>1.5.1.RELEASE</spring-boot.version>
-        <version.compiler-plugin>3.5.1</version.compiler-plugin>
-        <version.source-plugin>2.2.1</version.source-plugin>
-        <version.javadoc-plugin>2.9.1</version.javadoc-plugin>
-        <version.maven-gpg-plugin>1.5</version.maven-gpg-plugin>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    </properties>
+<properties>
+    <java.version>1.7</java.version>
+    <spring-boot.version>1.5.1.RELEASE</spring-boot.version>
+    <version.compiler-plugin>3.5.1</version.compiler-plugin>
+    <version.source-plugin>2.2.1</version.source-plugin>
+    <version.javadoc-plugin>2.9.1</version.javadoc-plugin>
+    <version.maven-gpg-plugin>1.5</version.maven-gpg-plugin>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+</properties>
 
  ```
 #### 该项目分为了两个模块：

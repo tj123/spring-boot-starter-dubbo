@@ -1,11 +1,12 @@
 #spring-boot-start-dubbo
 
 spring-boot-start-dubbo，让你可以使用spring-boot的方式开发dubbo程序。使dubbo开发变得如此简单。
-> 该项目是由teaey的项目[spring-boot-starter-dubbo](https://github.com/teaey/spring-boot-starter-dubbo)重构而成
+> 该项目是由teaey的项目[spring-boot-starter-dubbo](https://github.com/teaey/spring-boot-starter-dubbo)重构而成.
+> 如果有何指正，请联系我 272472809@qq.com
 
 ## 如何使用
 
-### 1. clone 代码（可选，已经发布到中央仓库，可以直接依赖中央仓库的稳定版本）
+### 1. clone 代码
 
 ```
 git clone git@github.com:teaey/spring-boot-starter-dubbo.git

@@ -2,8 +2,8 @@
   "groups": [
     {
       "name": "spring.dubbo",
-      "type": "springboot.DubboProperties",
-      "sourceType": "springboot.DubboProperties"
+      "type": "io.dubbo.springboot.DubboProperties",
+      "sourceType": "io.dubbo.springboot.DubboProperties"
     }
   ],
   "properties": [
@@ -11,25 +11,25 @@
       "name": "spring.dubbo.scan",
       "type": "java.lang.String",
       "description": "the package of DUBBO service , so that Spring can scan this package and new a instance",
-      "sourceType": "springboot.DubboProperties"
+      "sourceType": "io.dubbo.springboot.DubboProperties"
     },
     {
       "name": "spring.dubbo.application",
       "type": "com.alibaba.dubbo.config.ApplicationConfig",
       "description": "DUBBO application config. Mostly time you just need set value for <name>",
-      "sourceType": "springboot.DubboProperties"
+      "sourceType": "io.dubbo.springboot.DubboProperties"
     },
     {
       "name": "spring.dubbo.registry",
       "type": "com.alibaba.dubbo.config.RegistryConfig",
       "description": "DUBBO registry config. Mostly time you just need set value for <address>, so that DUBBO can no where to registry server",
-      "sourceType": "springboot.DubboProperties"
+      "sourceType": "io.dubbo.springboot.DubboProperties"
     },
     {
       "name": "spring.dubbo.protocol",
       "type": "com.alibaba.dubbo.config.ProtocolConfig",
       "description": "dubbo service's protocol config. you should set value for <port>",
-      "sourceType": "springboot.DubboProperties"
+      "sourceType": "io.dubbo.springboot.DubboProperties"
     }
   ],
   "hints": []

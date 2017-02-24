@@ -19,7 +19,7 @@ mvn clean install
 ```
 
 
-### 3. 修改maven配置文件(可以参考样例[spring-boot-starter-dubbo-sample](https://github.com/teaey/spring-boot-starter-dubbo-sample))
+### 3. 修改maven配置文件(可以参考样例[spring-boot-starter-dubbo-sample](https://github.com/JohnsonLow/spring-boot-starter-dubbo-sample))
 
 ##### 在Spring Boot项目的pom.xml修改依赖的版本及编码:
 ```
@@ -44,22 +44,19 @@ mvn clean install
 <plugin>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-maven-plugin</artifactId>
-    <version>${spring-boot.version}</version>
 </plugin>
 ```
-
-### 4. 发布服务
-
-服务接口:
-
+### 4. 服务接口
 ```
-package cn.teaey.sprintboot.test;
+package com.lyf.samples.api;
 
-public interface EchoService {
-    String echo(String str);
+public interface HelloService {
+    String code(String device);
 }
 
 ```
+### 5. 发布服务
+
 ##### 在pom.xml中添加以下依赖:
 
 根据实际情况依赖最新版本
@@ -72,56 +69,85 @@ public interface EchoService {
  </dependency>
  ```
 
-在application.properties添加Dubbo的版本信息和客户端超时信息,如下:
+在application.yml添加Dubbo的版本信息和客户端超时信息,如下:
 ```
-spring.dubbo.application.name=provider
-spring.dubbo.registry.address=zookeeper://192.168.99.100:32770
-spring.dubbo.protocol.name=dubbo
-spring.dubbo.protocol.port=20880
-spring.dubbo.scan=cn.teaey.sprintboot.test
+spring:
+  dubbo:
+    application:
+      name: provider
+    registry:
+      address: zookeeper://127.0.0.1:20181
+    protocol:
+      name: dubbo
+      prot: 20880
+
+  datasource:
+      url: jdbc:mysql://127.0.0.1:3306/qiji?useUnicode=true&characterEncoding=UTF8
+      username: qiji
+      password: qiji,123
+debug: true
 ```
 > spring.dubbo.scan 为要扫描的包。也可使用@DubboScan进行配置
 
-* spring boot启动
-```
-package cn.teaey.sprintboot.test;
-
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import io.dubbo.springboot.DubboScan;
-
-@SpringBootApplication
-@DubboScan({"cn.teaey.springboot.test"})
-public class Server {
-    public static void main(String[] args) {
-        SpringApplication.run(Server.class, args);
-    }
-}
-
-```
 * 编写你的Dubbo服务,只需要添加要发布的服务实现上添加 @Service ,如下
 ```
-package cn.teaey.sprintboot.test;
-
-import com.alibaba.dubbo.config.annotation.Service;
-
-@Service(version = "1.0.0")
-public class EchoServerImpl implements EchoService {
-
-    public String echo(String str) {
-        System.out.println(str);
-        return str;
+  package com.lyf.ds;
+  
+  import com.alibaba.dubbo.config.annotation.Service;
+  import com.lyf.samples.api.HelloService;
+  import org.springframework.beans.factory.annotation.Autowired;
+  import org.springframework.jdbc.core.JdbcTemplate;
+  import org.springframework.util.CollectionUtils;
+  import java.util.List;
+  
+  @Service(version = "1.0")
+  public class HelloServiceProvider implements HelloService {
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+    @Override
+    public String code(String device) {
+      List<String> res =  jdbcTemplate.queryForList("SELECT code FROM activity WHERE device = ? ", String.class, device);
+      if(CollectionUtils.isEmpty(res)){
+        return null;
+      }
+      return res.get(0);
     }
-}
+  }
 
 ```
 
-### 5. 消费Dubbo服务
+* spring boot启动
+```
+  package com.lyf.ds;
+  
+  import io.dubbo.springboot.DubboScan;
+  import org.springframework.boot.SpringApplication;
+  import org.springframework.boot.autoconfigure.SpringBootApplication;
+  
+  /**
+   * Created by 永锋 on 2017/2/22.
+   */
+  @SpringBootApplication
+  @DubboScan("com.lyf.ds")
+  public class Server {
+    public static void main(String[] args) {
+      SpringApplication.run(Server.class, args);
+    }
+  }
+```
+
+### 6. 消费Dubbo服务
 * 在application.properties添加Dubbo的版本信息和客户端超时信息,如下:
 ```
-spring.dubbo.application.name=consumer
-spring.dubbo.registry.address=zookeeper://192.168.99.100:32770
-spring.dubbo.scan=cn.teaey.sprintboot.test
+spring:
+  dubbo:
+    application:
+      name: consumer
+    registry:
+      address: zookeeper://127.0.0.1:20181
+#    scan: com.lyf.dc
+debug: true
+
 ```
 
 ##### 在pom.xml中添加以下依赖:
@@ -135,41 +161,58 @@ spring.dubbo.scan=cn.teaey.sprintboot.test
      <version>1.0.0</version>
  </dependency>
  ```
-
-* spring boot启动
-```
-package cn.teaey.sprintboot.test;
-
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ConfigurableApplicationContext;
-
-@SpringBootApplication
-@DubboScan({"cn.teaey.springboot.test"})
-public class Client {
-    public static void main(String[] args) {
-        ConfigurableApplicationContext run = SpringApplication.run(Client.class, args);
-        AbcService bean = run.getBean(AbcService.class);
-        System.out.println(bean.echoService.echo("abccc"));
-    }
-}
-
-```
 * 引用Dubbo服务,只需要添加要发布的服务实现上添加 @Reference ,如下:
 ```
-package cn.teaey.sprintboot.test;
+  package com.lyf.dc;
+  
+  import com.alibaba.dubbo.config.annotation.Reference;
+  import com.lyf.samples.api.HelloService;
+  import org.slf4j.Logger;
+  import org.slf4j.LoggerFactory;
+  import org.springframework.stereotype.Component;
+  
+  @Component
+  public class HelloServiceReq {
+    private static Logger logger = LoggerFactory.getLogger(HelloServiceReq.class);
+  
+    @Reference(version = "1.0")
+    public HelloService helloService;
+  
+    public void hello() {
+      long start = System.currentTimeMillis();
+      for (int i = 0; i < 10000; i++) {
+        String result = helloService.code("bbk_bbk72_t_jb3_jzusjfbi65wwqosk" + i);
+        logger.info("{}. result is {}", i, result);
+      }
+      logger.info("total spent {} ms", System.currentTimeMillis() - start);
+    }
+  }
 
-import com.alibaba.dubbo.config.annotation.Reference;
-import org.springframework.stereotype.Component;
+```
+* spring boot启动
+```
+  package com.lyf.dct;
+  
+  import com.lyf.dc.HelloServiceReq;
+  import io.dubbo.springboot.DubboScan;
+  import org.springframework.boot.SpringApplication;
+  import org.springframework.boot.autoconfigure.SpringBootApplication;
+  import org.springframework.context.ConfigurableApplicationContext;
+  
+  @SpringBootApplication
+  @DubboScan("com.lyf.dc")
+  public class Client {
+    public static void main(String[] args) {
+      ConfigurableApplicationContext context = SpringApplication.run(Client.class, args);
+      HelloServiceReq helloService = context.getBean(HelloServiceReq.class);
+      helloService.hello();
+    }
+  }
 
-@Component
-public class AbcService {
-    @Reference(version = "1.0.0")
-    public EchoService echoService;
-}
 ```
 
-### 6. 打包
+
+### 7. 打包
 
 > 可以直接执行Server或者Client启动
 

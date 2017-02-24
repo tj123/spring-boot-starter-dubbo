@@ -1,4 +1,4 @@
-package io.dubbo.springboot;
+package com.oqiji.boot.dubbo;
 
 import org.springframework.core.annotation.AliasFor;
 

@@ -1,11 +1,10 @@
-package io.dubbo.springboot;
+package com.oqiji.boot.dubbo;
 
 import com.alibaba.dubbo.config.spring.AnnotationBean;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.boot.context.event.ApplicationPreparedEvent;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -17,7 +16,7 @@ import java.util.Set;
 /**
  * Created by yongfeng on 2017/2/23.
  */
-@EnableConfigurationProperties(DubboProperties.class)
+
 public class DubboScanListener  implements ApplicationListener {
 	private static Logger logger = LoggerFactory.getLogger(DubboScanListener.class);
 	private Set<String> registeredScanner = new HashSet<>();

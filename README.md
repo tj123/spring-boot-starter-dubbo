@@ -9,7 +9,7 @@ spring-boot-start-dubbo，让你可以使用spring-boot的方式开发dubbo程�
 ### 1. clone 代码
 
 ```
-git clone git@github.com:teaey/spring-boot-starter-dubbo.git
+git clone git@github.com:JohnsonLow/spring-boot-starter-dubbo.git
 ```
 
 ### 2. 编译安装（可选）
@@ -64,8 +64,8 @@ public interface HelloService {
 
 ```
  <dependency>
-     <groupId>io.dubbo.springboot</groupId>
-     <artifactId>starter-server</artifactId>
+     <groupId>com.oqiji.springboot</groupId>
+     <artifactId>starter-dubbo-server</artifactId>
      <version>1.0.0</version>
  </dependency>
  ```
@@ -121,7 +121,7 @@ debug: true
 ```
   package com.lyf.ds;
   
-  import io.dubbo.springboot.DubboScan;
+  import com.oqiji.boot.dubbo.DubboScan;
   import org.springframework.boot.SpringApplication;
   import org.springframework.boot.autoconfigure.SpringBootApplication;
   
@@ -157,9 +157,9 @@ debug: true
 
 ```
  <dependency>
-     <groupId>io.dubbo.springboot</groupId>
-     <artifactId>starter-common</artifactId>
-     <version>1.0.0</version>
+    <groupId>com.oqiji.springboot</groupId>
+    <artifactId>starter-dubbo-common</artifactId>
+    <version>1.0.0</version>
  </dependency>
  ```
 * 引用Dubbo服务,只需要添加要发布的服务实现上添加 @Reference ,如下:
@@ -195,7 +195,7 @@ debug: true
   package com.lyf.dct;
   
   import com.lyf.dc.HelloServiceReq;
-  import io.dubbo.springboot.DubboScan;
+  import com.oqiji.boot.dubbo.DubboScan;
   import org.springframework.boot.SpringApplication;
   import org.springframework.boot.autoconfigure.SpringBootApplication;
   import org.springframework.context.ConfigurableApplicationContext;

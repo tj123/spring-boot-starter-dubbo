@@ -1,4 +1,4 @@
 org.springframework.context.ApplicationListener=\
-io.dubbo.springboot.DubboScanListener
+com.oqiji.boot.dubbo.DubboScanListener
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 io.dubbo.springboot.DubboAutoConfiguration

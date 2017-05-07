@@ -16,27 +16,28 @@
 
   <groupId>com.github.tj123.springboot</groupId>
   <artifactId>spring-boot-starter-dubbo</artifactId>
-  <version>1.0.0</version>
+  <version>1.1.1-SNAPSHOT</version>
 
   <packaging>pom</packaging>
   <url>https://github.com/JohnsonLow/spring-boot-starter-dubbo</url>
   <name>spring-boot-starter-dubbo</name>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-    <groupId>io.dubbo.springboot</groupId>
-	<artifactId>spring-boot-starter-dubbo</artifactId>
-    <version>1.1.0-SNAPSHOT</version>
-    <developers>
-    	<developer>
-    		<name>Wu.XiaoFei</name>
-    		<url>https://github.com/teaey</url>
-    	</developer>
-    	<developer>
-    		<name>Yang.Yin</name>
-    		<url>https://github.com/dmotnxpy</url>
-    	</developer>
-    </developers>
+
+  <developers>
+    <developer>
+      <name>Wu.XiaoFei</name>
+      <url>https://github.com/teaey</url>
+    </developer>
+    <developer>
+      <name>Yang.Yin</name>
+      <url>https://github.com/dmotnxpy</url>
+    </developer>
+    <developer>
+      <name>JohnsonLow(yongfeng.liu)</name>
+      <email>272462809@qq.com</email>
+      <url>github.com/JohnsonLow</url>
+      <timezone>+8</timezone>
+    </developer>
+  </developers>
 
   <properties>
     <java.version>1.7</java.version>
@@ -49,67 +50,35 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
 
-	<dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-            <version>${spring.boot.version}</version>
-        </dependency>
-		<dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>dubbo</artifactId>
-			<version>2.8.4</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.springframework</groupId>
-					<artifactId>*</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>com.101tec</groupId>
-			<artifactId>zkclient</artifactId>
-			<version>0.7</version>
-			<exclusions>
-				<exclusion>
-					<artifactId>slf4j-api</artifactId>
-					<groupId>org.slf4j</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>log4j</artifactId>
-					<groupId>log4j</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>slf4j-log4j12</artifactId>
-					<groupId>org.slf4j</groupId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-configuration-processor</artifactId>
-			<version>${spring.boot.version}</version>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-dependencies</artifactId>
-			<version>${spring.boot.version}</version>
-			<type>pom</type>
-			<scope>import</scope>
-		</dependency>
-	</dependencies>
-  <developers>
-    <developer>
-      <name>JohnsonLow(yongfeng.liu)</name>
-      <email>272462809@qq.com</email>
-      <url>github.com/JohnsonLow</url>
-      <timezone>+8</timezone>
-    </developer>
-  </developers>
 
   <dependencyManagement>
     <dependencies>
+
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter</artifactId>
+        <version>${spring-boot.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>dubbo</artifactId>
+        <version>2.8.4</version>
+        <exclusions>
+          <exclusion>
+            <groupId>org.springframework</groupId>
+            <artifactId>*</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-configuration-processor</artifactId>
+        <version>${spring-boot.version}</version>
+        <optional>true</optional>
+      </dependency>
+
       <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-dependencies</artifactId>
@@ -117,7 +86,17 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
+
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>${spring-boot.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
     </dependencies>
+
   </dependencyManagement>
 
   <profiles>

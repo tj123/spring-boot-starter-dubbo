@@ -11,6 +11,7 @@ import java.lang.annotation.*;
 @Target({ElementType.TYPE})
 @Documented
 public @interface DubboScan{
+
 	@AliasFor("value")
 	String[] basePackages() default {};
 

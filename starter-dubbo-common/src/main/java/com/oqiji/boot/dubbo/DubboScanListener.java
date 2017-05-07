@@ -19,8 +19,8 @@ import java.util.Set;
 
 public class DubboScanListener  implements ApplicationListener {
 	private static Logger logger = LoggerFactory.getLogger(DubboScanListener.class);
-	private Set<String> registeredScanner = new HashSet<>();
-	@Override
+	private Set<String> registeredScanner = new HashSet<String>();
+
 	public void onApplicationEvent(ApplicationEvent event) {
 		if (event instanceof ApplicationPreparedEvent) {
 			registeredScanner.clear();

@@ -1,10 +1,12 @@
 package io.dubbo.springboot;
 
+import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 @Configuration
-@Import({DubboXmlConfiguration.class, DubboPropertiesConfiguration.class})
-public class DubboAutoConfiguration {
+@AutoConfigureOrder(2)
+@Import(DubboRegistrar.class)
+public class DubboPropertiesConfiguration {
 
 }

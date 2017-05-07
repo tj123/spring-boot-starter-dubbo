@@ -1,51 +1,76 @@
 package io.dubbo.springboot;
 
-import com.alibaba.dubbo.config.ApplicationConfig;
-import com.alibaba.dubbo.config.ProtocolConfig;
-import com.alibaba.dubbo.config.RegistryConfig;
+import java.util.List;
+
 import org.springframework.boot.context.properties.ConfigurationProperties;
+
+import io.dubbo.springboot.config.DubboApplicationConfig;
+import io.dubbo.springboot.config.DubboConsumerConfig;
+import io.dubbo.springboot.config.DubboProtocolConfig;
+import io.dubbo.springboot.config.DubboProviderConfig;
+import io.dubbo.springboot.config.DubboRegistryConfig;
 
 @ConfigurationProperties(prefix = "spring.dubbo")
 public class DubboProperties {
 
     private String scan;
 
-    private ApplicationConfig application;
+    private DubboApplicationConfig application;
 
-    private RegistryConfig registry;
+    private List<DubboRegistryConfig> registry;
 
-    private ProtocolConfig protocol;
+    private List<DubboProtocolConfig> protocol;
+    
+    private List<DubboProviderConfig> provider;
+    
+    private DubboConsumerConfig consumer;
 
-    public String getScan() {
-        return scan;
-    }
+	public String getScan() {
+		return scan;
+	}
 
-    public void setScan(String scan) {
-        this.scan = scan;
-    }
+	public void setScan(String scan) {
+		this.scan = scan;
+	}
 
-    public ApplicationConfig getApplication() {
-        return application;
-    }
+	public DubboApplicationConfig getApplication() {
+		return application;
+	}
 
-    public void setApplication(ApplicationConfig application) {
-        this.application = application;
-    }
+	public void setApplication(DubboApplicationConfig application) {
+		this.application = application;
+	}
 
-    public RegistryConfig getRegistry() {
-        return registry;
-    }
+	public List<DubboRegistryConfig> getRegistry() {
+		return registry;
+	}
 
-    public void setRegistry(RegistryConfig registry) {
-        this.registry = registry;
-    }
+	public void setRegistry(List<DubboRegistryConfig> registry) {
+		this.registry = registry;
+	}
 
-    public ProtocolConfig getProtocol() {
-        return protocol;
-    }
+	public List<DubboProtocolConfig> getProtocol() {
+		return protocol;
+	}
 
-    public void setProtocol(ProtocolConfig protocol) {
-        this.protocol = protocol;
-    }
+	public void setProtocol(List<DubboProtocolConfig> protocol) {
+		this.protocol = protocol;
+	}
+
+	public List<DubboProviderConfig> getProvider() {
+		return provider;
+	}
+
+	public void setProvider(List<DubboProviderConfig> provider) {
+		this.provider = provider;
+	}
+
+	public DubboConsumerConfig getConsumer() {
+		return consumer;
+	}
+
+	public void setConsumer(DubboConsumerConfig consumer) {
+		this.consumer = consumer;
+	}
 
 }

@@ -8,7 +8,6 @@ public class DubboRegistryConfig extends RegistryConfig {
 
 	@Override
 	public String getProtocol() {
-
 		return super.getProtocol();
 	}
 
